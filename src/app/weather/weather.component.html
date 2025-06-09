@@ -1,0 +1,18 @@
+<div class="container">
+ <h1>Dự báo thời tiết</h1>
+  <input id="cityInput" type="text" placeholder="Nhập tên thành phố..." />
+  <button (click)="showWeather()">Xem</button>
+
+  <div class="weather" *ngIf="weatherData">
+    <img 
+      class="weather-icon" 
+      [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'" 
+      alt="Weather Icon"
+    >
+    <h2>{{ weatherData.name }}</h2>
+    <p><strong>Nhiệt độ:</strong> <span>{{ weatherData.main.temp }}</span> °C</p>
+    <p><strong>Thời tiết:</strong> <span>{{ weatherData.weather[0].description }}</span></p>
+    <p><strong>Độ ẩm:</strong> <span>{{ weatherData.main.humidity }}</span>%</p>
+    <p><strong>Gió:</strong> <span>{{ weatherData.wind.speed }}</span> m/s</p>
+  </div>
+</div>
